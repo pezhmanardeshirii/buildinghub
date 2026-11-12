@@ -37,4 +37,5 @@ public class BuildingController {
     public void delete(@PathVariable Long id) {
         buildingService.deleteById(id);
     }
+    //test
 }
