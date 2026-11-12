@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: buildinghub
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/buildinghub}
+    username: ${DB_USERNAME:buildinghub}
+    password: ${DB_PASSWORD:buildinghub}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
