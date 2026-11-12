@@ -2,8 +2,8 @@
 package ir.buildinghub.building.entity;
 
 import jakarta.persistence.*;
-import java.time.OffsetDateTime;
 
+import java.time.OffsetDateTime;
 @Entity
 @Table(name = "buildings")
 public class Building {
@@ -50,5 +50,13 @@ public class Building {
 
     public OffsetDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -37,5 +37,10 @@ public class BuildingController {
     public void delete(@PathVariable Long id) {
         buildingService.deleteById(id);
     }
-    //test
+
+    @PutMapping("/{id}")
+    public Building update(@PathVariable Long id,@Valid @RequestBody CreateBuildingRequest request) {
+
+        return buildingService.update(id, request);
+    }
 }

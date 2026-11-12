@@ -1,4 +1,3 @@
-
 package ir.buildinghub.building.service;
 
 import ir.buildinghub.building.dto.CreateBuildingRequest;
@@ -22,11 +21,8 @@ public class BuildingService {
         return buildingRepository.findAll();
     }
 
-    public Building create (CreateBuildingRequest request){
-        Building building = new Building(
-                request.name(),
-                request.address()
-        );
+    public Building create(CreateBuildingRequest request) {
+        Building building = new Building(request.name(), request.address());
         return buildingRepository.save(building);
     }
 
@@ -37,5 +33,14 @@ public class BuildingService {
     public void deleteById(Long id) {
         Building building = findById(id);
         buildingRepository.delete(building);
+    }
+
+    public Building update(Long id, CreateBuildingRequest request) {
+        Building building = findById(id);
+        
+        building.setName(request.name());
+        building.setAddress(request.address());
+
+        return buildingRepository.save(building);
     }
 }
